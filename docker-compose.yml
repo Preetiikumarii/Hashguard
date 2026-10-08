@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  api:
+    build: 
+      context: ./backend
+    ports:
+      - "8001:8000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/cee
+      - MINIO_ENDPOINT=minio:9000
+      - EVM_RPC_URL=http://anvil:8545
+    depends_on:
+      db:
+        condition: service_healthy
+      minio:
+        condition: service_started
+      anvil:
+        condition: service_started
+    volumes:
+      - ./backend:/app
+      - ./contracts:/contracts
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=cee
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  minio:
+    image: minio/minio
+    command: server /data --console-address ":9001"
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - miniodata:/data
+
+  anvil:
+    image: ghcr.io/foundry-rs/foundry:latest
+    entrypoint: ["anvil", "--host", "0.0.0.0", "--port", "8545", "--code-size-limit", "100000"]
+    ports:
+      - "8545:8545"
+
+volumes:
+  pgdata:
+  miniodata:
+

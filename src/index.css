@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Legacy variables for backwards compatibility */
+    --background: 40 20% 91%;          /* #efeadf rich luxury warm linen */
+    --foreground: 222 47% 11%;         /* #0f172a obsidian ink */
+    --card: 40 40% 98%;                /* #fcfbf7 crisp porcelain card */
+    --card-foreground: 222 47% 11%;    /* #0f172a */
+    --popover: 40 40% 98%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 218 80% 25%;            /* #0d3674 deep navy */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 20% 88%;           /* #e5dfd2 subtle tray */
+    --secondary-foreground: 222 47% 11%;
+    --muted: 40 20% 88%;               /* #e5dfd2 */
+    --muted-foreground: 215 18% 38%;   /* #4f5b6e sharp slate */
+    --accent: 40 20% 88%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 354 75% 42%;        /* #bf162c seal crimson */
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 18% 78%;              /* #d3ccbb crisp line */
+    --input: 40 18% 78%;
+    --ring: 218 80% 25%;
+    --radius: 0.5rem;
+
+    /* =========================================
+       CYBER EVIDENCE DESIGN SYSTEM TOKENS 
+       ========================================= */
+
+    /* Surfaces & Backgrounds (Pristine Luxury Warm Paper) */
+    --color-background: 40 20% 91%;     /* #efeadf luxury linen canvas */
+    --color-surface: 40 40% 98%;         /* #fcfbf7 crisp porcelain card */
+    --color-surface-elevated: 0 0% 100%; /* #ffffff */
+    --color-surface-subtle: 40 20% 88%; /* #e5dfd2 subtle tray */
+    
+    /* Borders */
+    --color-border: 40 18% 78%;         /* #d3ccbb crisp tactile border */
+    --color-border-strong: 40 18% 68%;  /* #bcb5a3 */
+
+    /* Typography */
+    --color-text-primary: 222 47% 11%;  /* #0f172a obsidian ink */
+    --color-text-secondary: 217 22% 28%;/* #364152 readable secondary */
+    --color-text-muted: 215 18% 42%;    /* #576479 */
+
+    /* Brand */
+    --color-brand: 218 80% 25%;         /* #0d3674 deep navy */
+    --color-brand-hover: 218 80% 32%;
+    --color-brand-subtle: 218 50% 94%;
+
+    /* Semantic Status */
+    --color-success: 154 68% 28%;       /* #157347 forest seal */
+    --color-success-subtle: 154 50% 92%;
+    
+    --color-warning: 38 92% 38%;
+    --color-warning-subtle: 38 90% 93%;
+    
+    --color-danger: 354 75% 42%;        /* #bf162c seal crimson */
+    --color-danger-subtle: 354 65% 94%;
+    
+    --color-info: 218 80% 25%;
+    --color-info-subtle: 218 50% 92%;
+
+    /* Domain-Specific: Cyber Forensics */
+    --color-verification: 154 68% 28%;
+    --color-integrity: 218 80% 25%;
+    --color-blockchain: 260 50% 45%;
+    --color-off-chain: 217 22% 28%;
+    --color-tampered: 354 75% 42%;
+    --color-pending: 38 92% 38%;
+  }
+
+  .dark {
+    /* Legacy dark variables */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* CYBER EVIDENCE DESIGN SYSTEM TOKENS - DARK */
+    --color-background: 222.2 84% 4.9%;
+    --color-surface: 222.2 84% 6.9%;
+    --color-surface-elevated: 222.2 84% 10%;
+    --color-surface-subtle: 217.2 32.6% 17.5%;
+    
+    --color-border: 217.2 32.6% 17.5%;
+    --color-border-strong: 217.2 32.6% 25%;
+
+    --color-text-primary: 210 40% 98%;
+    --color-text-secondary: 215 20.2% 65.1%;
+    --color-text-muted: 215 20.2% 50%;
+
+    --color-brand: 217.2 91.2% 59.8%;
+    --color-brand-hover: 221.2 83.2% 73.3%;
+    --color-brand-subtle: 217.2 32.6% 25%;
+
+    --color-success: 142.1 70.6% 45.3%;
+    --color-success-subtle: 142.1 70.6% 15%;
+    
+    --color-warning: 38 92% 50%;
+    --color-warning-subtle: 38 92% 15%;
+    
+    --color-danger: 346.8 77.2% 49.8%;
+    --color-danger-subtle: 346.8 77.2% 15%;
+    
+    --color-info: 217.2 91.2% 59.8%;
+    --color-info-subtle: 217.2 91.2% 15%;
+
+    --color-verification: 142.1 70.6% 45.3%;
+    --color-integrity: 217.2 91.2% 59.8%;
+    --color-blockchain: 271.5 81.3% 65.9%;
+    --color-off-chain: 215 20.2% 50%;
+    --color-tampered: 346.8 77.2% 49.8%;
+    --color-pending: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  /* Typography Scale */
+  h1 { @apply text-4xl font-semibold tracking-tight; }
+  h2 { @apply text-3xl font-semibold tracking-tight; }
+  h3 { @apply text-2xl font-semibold tracking-tight; }
+  h4 { @apply text-xl font-semibold tracking-tight; }
+  h5 { @apply text-lg font-semibold tracking-tight; }
+  h6 { @apply text-base font-semibold tracking-tight; }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
+
+/* Subtle grid overlay for SOC theme */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
+}

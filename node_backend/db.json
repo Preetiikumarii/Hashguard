@@ -1,0 +1,62 @@
+{
+  "evidence": [
+    {
+      "id": "EV-DDXOEY",
+      "caseId": "CASE-2026-9012",
+      "title": "Compromised Database Specimen",
+      "type": "Database Log",
+      "sourceOrg": "Organization A (CERT-Alpha)",
+      "currentCustodian": "Organization B (Cyber Lab)",
+      "hash": "02714112f6ebd3b65923563b6161535dfff4b3a381bda23be5bf64e232650649",
+      "expectedHash": "4a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b",
+      "hashAlgorithm": "SHA-256",
+      "status": "COMPROMISED",
+      "fileSize": "3.4 MB",
+      "collector": "db-admin@cert-alpha.gov",
+      "createdAt": "2026-09-28 01:15:00 IST",
+      "lastEvent": "ANALYZE",
+      "lastEventTime": "2026-09-28 02:40:00 IST",
+      "storageType": "OFF-CHAIN SECURED",
+      "storageLocation": "vault://secure-enclave/ev-ddxoey_tampered.raw",
+      "accessControl": "RESTRICTED / AUTHORIZED ROLES ONLY",
+      "blockchainStatus": "INTEGRITY MISMATCH DETECTED",
+      "blockNumber": 483106,
+      "txHash": "0x35928f01a7bc89d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b47052",
+      "signature": {
+        "status": "INVALID_MISMATCH",
+        "signer": "Organization A (CERT-Alpha CA)",
+        "algorithm": "ECDSA / secp256k1",
+        "publicKeyFingerprint": "SHA256:4b9a7c...8f12",
+        "signedTimestamp": "2026-09-28 01:15:00 IST",
+        "manifestId": "MNF-EV-DDXOEY"
+      },
+      "isDerived": false,
+      "derivedCount": 0,
+      "description": "Adversarially modified off-chain specimen. SHA-256 bit digest fails validation against immutable on-chain signed manifest anchor (Block #483106)."
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": "AUD-001",
+      "timestamp": "2026-09-21T16:40:00.000Z",
+      "event": "SYSTEM_INITIALIZED",
+      "actor": "admin@cyberlab.local",
+      "organization": "Organization B (Cyber Defense Lab)",
+      "evidence_id": "SYSTEM",
+      "event_id": "EVT-INIT",
+      "verification": "SUCCESS",
+      "reference": "Ledger-Consensus",
+      "details": "Evidence exchange node initialized. Ready for legitimate evidence ingestion."
+    }
+  ],
+  "transfers": [],
+  "retention_policies": [
+    {
+      "id": "POL-001",
+      "name": "Standard Evidence Retention (5 Yrs)",
+      "retention_period_days": 1825,
+      "trigger_event": "evidence_sealed",
+      "action_on_expiry": "ARCHIVE_COLD"
+    }
+  ]
+}
